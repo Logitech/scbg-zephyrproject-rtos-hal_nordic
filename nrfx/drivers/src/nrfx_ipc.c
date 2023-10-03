@@ -143,7 +143,7 @@ void nrfx_ipc_send_task_channel_assign(uint8_t send_index, uint8_t channel_index
     nrf_ipc_send_config_set(NRF_IPC, send_index, channel_bitmask);
 }
 
-void nrfx_ipc_irq_handler(void)
+__irq_handler void nrfx_ipc_irq_handler(void)
 {
     // Get the information about events that fire this interrupt
     uint32_t events_map = nrf_ipc_int_pending_get(NRF_IPC);

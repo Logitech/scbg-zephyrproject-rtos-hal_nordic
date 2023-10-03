@@ -571,7 +571,7 @@ void nrfx_uart_rx_abort(nrfx_uart_t const * p_instance)
     NRFX_LOG_INFO("RX transaction aborted.");
 }
 
-static void uart_irq_handler(NRF_UART_Type *        p_uart,
+__irq_handler static void uart_irq_handler(NRF_UART_Type *        p_uart,
                              uart_control_block_t * p_cb)
 {
     if (nrf_uart_int_enable_check(p_uart, NRF_UART_INT_MASK_ERROR) &&
@@ -666,7 +666,7 @@ static void uart_irq_handler(NRF_UART_Type *        p_uart,
 }
 
 #if NRFX_CHECK(NRFX_UART0_ENABLED)
-void nrfx_uart_0_irq_handler(void)
+__irq_handler void nrfx_uart_0_irq_handler(void)
 {
     uart_irq_handler(NRF_UART0, &m_cb[NRFX_UART0_INST_IDX]);
 }

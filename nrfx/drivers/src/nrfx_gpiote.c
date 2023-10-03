@@ -1313,7 +1313,7 @@ static void gpiote_evt_handle(uint32_t mask)
     }
 }
 
-void nrfx_gpiote_irq_handler(void)
+__irq_handler void nrfx_gpiote_irq_handler(void)
 {
     uint32_t status = 0;
     uint32_t i;
