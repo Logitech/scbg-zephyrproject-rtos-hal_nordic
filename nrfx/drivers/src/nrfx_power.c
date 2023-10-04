@@ -354,7 +354,7 @@ void nrfx_power_irq_handler(void)
  * function instead of another one defined as weak will require additional
  * actions, and might be even impossible.
  */
-void nrfx_power_clock_irq_handler(void)
+__irq_handler void nrfx_power_clock_irq_handler(void)
 {
     nrfx_power_irq_handler();
     nrfx_clock_irq_handler();

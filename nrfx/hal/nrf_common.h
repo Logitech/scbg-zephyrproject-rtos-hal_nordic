@@ -54,6 +54,9 @@ extern "C" {
 #define NRF_CTZ(value) __CLZ(__RBIT(value))
 #endif
 
+/* function decorator for IRQ Handlers */
+#define __irq_handler   __attribute__((aligned(8)))
+
 #ifndef NRF_DECLARE_ONLY
 
 NRF_STATIC_INLINE void nrf_event_readback(void * p_event_reg)

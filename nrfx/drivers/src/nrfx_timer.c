@@ -267,7 +267,7 @@ void nrfx_timer_compare_int_disable(nrfx_timer_t const * p_instance,
         nrf_timer_compare_int_get(channel));
 }
 
-static void irq_handler(NRF_TIMER_Type        * p_reg,
+__irq_handler static void irq_handler(NRF_TIMER_Type        * p_reg,
                         timer_control_block_t * p_cb,
                         uint8_t                 channel_count)
 {
@@ -288,7 +288,7 @@ static void irq_handler(NRF_TIMER_Type        * p_reg,
 }
 
 #if NRFX_CHECK(NRFX_TIMER0_ENABLED)
-void nrfx_timer_0_irq_handler(void)
+__irq_handler void nrfx_timer_0_irq_handler(void)
 {
     irq_handler(NRF_TIMER0, &m_cb[NRFX_TIMER0_INST_IDX],
         NRF_TIMER_CC_CHANNEL_COUNT(0));
@@ -296,7 +296,7 @@ void nrfx_timer_0_irq_handler(void)
 #endif
 
 #if NRFX_CHECK(NRFX_TIMER1_ENABLED)
-void nrfx_timer_1_irq_handler(void)
+__irq_handler void nrfx_timer_1_irq_handler(void)
 {
     irq_handler(NRF_TIMER1, &m_cb[NRFX_TIMER1_INST_IDX],
         NRF_TIMER_CC_CHANNEL_COUNT(1));
@@ -304,7 +304,7 @@ void nrfx_timer_1_irq_handler(void)
 #endif
 
 #if NRFX_CHECK(NRFX_TIMER2_ENABLED)
-void nrfx_timer_2_irq_handler(void)
+__irq_handler void nrfx_timer_2_irq_handler(void)
 {
     irq_handler(NRF_TIMER2, &m_cb[NRFX_TIMER2_INST_IDX],
         NRF_TIMER_CC_CHANNEL_COUNT(2));
@@ -312,7 +312,7 @@ void nrfx_timer_2_irq_handler(void)
 #endif
 
 #if NRFX_CHECK(NRFX_TIMER3_ENABLED)
-void nrfx_timer_3_irq_handler(void)
+__irq_handler void nrfx_timer_3_irq_handler(void)
 {
     irq_handler(NRF_TIMER3, &m_cb[NRFX_TIMER3_INST_IDX],
         NRF_TIMER_CC_CHANNEL_COUNT(3));
@@ -320,7 +320,7 @@ void nrfx_timer_3_irq_handler(void)
 #endif
 
 #if NRFX_CHECK(NRFX_TIMER4_ENABLED)
-void nrfx_timer_4_irq_handler(void)
+__irq_handler void nrfx_timer_4_irq_handler(void)
 {
     irq_handler(NRF_TIMER4, &m_cb[NRFX_TIMER4_INST_IDX],
         NRF_TIMER_CC_CHANNEL_COUNT(4));
